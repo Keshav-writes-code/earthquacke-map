@@ -9,11 +9,10 @@ class Filtered_Feature(TypedDict):
     time: datetime.datetime
 
 
-def get_usgs_data():
+def get_usgs_data(start_date: str):
     parameters = {
         "format": "geojson",
-        "starttime": "2014-01-01",
-        "endtime": "2014-01-02",
+        "starttime": start_date,
     }
     response = requests.get(
         "https://earthquake.usgs.gov/fdsnws/event/1/query", parameters

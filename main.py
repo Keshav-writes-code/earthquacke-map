@@ -7,9 +7,9 @@ cnx = mysql.connector.connect(user="root", password="user", host="127.0.0.1")
 cursor = cnx.cursor()
 
 
-def sync_data():
+def sync_data(last_sync_time: datetime.datetime):
     # NOTE: Data Fetching
-    data = get_usgs_data()
+    data = get_usgs_data(last_sync_time.isoformat())
 
     # NOTE: Pushing to DB
     setup_db("earthquake", cursor)
@@ -23,12 +23,13 @@ def sync_data():
 
 def main():
     # NOTE: Push Data from API to DB every 2 Seconds
+    last_sync_time = datetime.datetime.now() - datetime.timedelta(1)
     interval = 2
     try:
         while True:
             time.sleep(interval)
-            sync_data()
-            print("Data Pulled ")
+            sync_data(last_sync_time)
+            last_sync_time = datetime.datetime.now()
     except KeyboardInterrupt:
         print("Program Exited")
 
