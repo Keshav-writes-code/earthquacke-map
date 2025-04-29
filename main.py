@@ -1,14 +1,9 @@
-import requests
+from lib.usgs import get_usgs_data
 
 
 def main():
-    parameters = {
-        "format": "geojson",
-        "starttime": "2014-01-01",
-        "endtime": "2014-01-02",
-    }
-    response = requests.get(
-        "https://earthquake.usgs.gov/fdsnws/event/1/query", parameters
+    # NOTE: Data Fetching
+    data = get_usgs_data()
     )
     data = response.json()
     mag = data["features"][2]["properties"]["mag"]
