@@ -1,6 +1,5 @@
 import mysql.connector
-from mysql.connector import errorcode
-from lib.db import TABLES, setup_db
+from lib.db import setup_db
 from lib.usgs import get_usgs_data
 
 cnx = mysql.connector.connect(user="root", password="user", host="127.0.0.1")
