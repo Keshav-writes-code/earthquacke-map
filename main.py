@@ -1,3 +1,4 @@
+import datetime
 import time
 import mysql.connector
 from lib.db import setup_db
@@ -14,6 +15,11 @@ def sync_data(last_sync_time: datetime.datetime):
     # NOTE: Pushing to DB
     setup_db("earthquake", cursor)
     values = [(d["mag"], d["place"], d["time"]) for d in data]
+    print(f"{datetime.datetime.now().strftime('%-I:%M:%S %p')} : ", end="")
+    if not values:
+        print("On Latest Changes")
+    else:
+        print("Data Pulled ")
 
     cursor.executemany(
         "INSERT INTO `records_log` (magnitude, place, time) VALUES(%s, %s, %s)", values
