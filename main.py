@@ -22,7 +22,7 @@ def sync_data():
 
 
 def main():
-    # NOTE: Push Data from API to DB every 10 Minutes
+    # NOTE: Push Data from API to DB every 2 Seconds
     interval = 2
     try:
         while True:
