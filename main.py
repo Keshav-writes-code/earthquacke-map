@@ -29,7 +29,7 @@ def sync_data(last_sync_time: datetime.datetime):
 
 def main():
     # NOTE: Push Data from API to DB every 2 Seconds
-    last_sync_time = datetime.datetime.now() - datetime.timedelta(1)
+    last_sync_time = datetime.datetime.now() - datetime.timedelta(55)
     interval = 2
     try:
         while True:
