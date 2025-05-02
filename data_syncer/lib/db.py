@@ -7,10 +7,10 @@ TABLES: dict[str, str] = {}
 TABLES["records_log"] = (
     "CREATE TABLE `records_log` ("
     "  `id` int(11) NOT NULL AUTO_INCREMENT,"
-    "  `time` date NOT NULL,"
     "  `magnitude` FLOAT NOT NULL,"
     "  `longitude` FLOAT NOT NULL,"
     "  `latitude` FLOAT NOT NULL,"
+    "  `time` datetime NOT NULL,"
     "  `place` varchar(200) NOT NULL,"
     "  PRIMARY KEY (`id`)"
     ") ENGINE=InnoDB"
