@@ -9,6 +9,8 @@ TABLES["records_log"] = (
     "  `id` int(11) NOT NULL AUTO_INCREMENT,"
     "  `time` date NOT NULL,"
     "  `magnitude` FLOAT NOT NULL,"
+    "  `longitude` FLOAT NOT NULL,"
+    "  `latitude` FLOAT NOT NULL,"
     "  `place` varchar(200) NOT NULL,"
     "  PRIMARY KEY (`id`)"
     ") ENGINE=InnoDB"
