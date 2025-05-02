@@ -1,6 +1,6 @@
 const MS_IN_DAY = 86400000;
 const now = Date.now();
-const oneMonthAgo = now - 30 * MS_IN_DAY;
+const oneMonthAgo = now - 2 * MS_IN_DAY;
 
 const fromSlider = document.querySelector("#fromSlider");
 const toSlider = document.querySelector("#toSlider");
@@ -12,7 +12,7 @@ toSlider.min = oneMonthAgo;
 toSlider.max = now;
 
 // Set initial values
-fromSlider.value = now - 30 * MS_IN_DAY; // 30 days ago
+fromSlider.value = now - 1 * MS_IN_DAY; // 30 days ago
 toSlider.value = now;
 
 // Helpers
