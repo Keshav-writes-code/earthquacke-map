@@ -17,6 +17,15 @@
   </head>
   <body>
     <div id="map"></div>
+    <div class="toolbar">
+      <p>Time Range</p>
+      <div class="range_container">
+        <div class="sliders_control">
+          <input id="fromSlider" type="range" value="70" min="0" max="100" />
+          <input id="toSlider" type="range" value="100" min="0" max="100" />
+        </div>
+      </div>
+    </div>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -54,5 +63,6 @@
         });
       })();
     </script>
+    <script src="{{ url_for('static', filename='range_sliders.js') }}"></script>
   </body>
 </html>
