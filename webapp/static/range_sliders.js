@@ -72,8 +72,6 @@ function setToggleAccessible(currentTarget) {
 async function handleSliderRelease() {
   const from = formatDateTime(fromSlider.value);
   const to = formatDateTime(toSlider.value);
-  console.log("From:", from);
-  console.log("To:", to);
 
   const data = await get_data(from, to);
   clear_markers();
