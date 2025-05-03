@@ -77,12 +77,7 @@ async function handleSliderRelease() {
 
   const data = await get_data(from, to);
   clear_markers();
-  data.forEach((v) => {
-    L.marker([v.latitude, v.longitude])
-      .addTo(markersGroup)
-      .bindPopup(v.place)
-      .openPopup();
-  });
+  update_ui(data);
 }
 
 // Initial rendering

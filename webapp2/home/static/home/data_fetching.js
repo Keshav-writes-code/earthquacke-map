@@ -24,6 +24,14 @@ async function get_data(start_time, end_time) {
     console.log(e);
   }
 }
+function update_ui(data) {
+  data.forEach((v) => {
+    L.circle([v.latitude, v.longitude], { radius: v.magnitude * 100000 })
+      .addTo(markersGroup)
+      .bindPopup(v.place)
+      .openPopup();
+  });
+}
 (async () => {
   const date = new Date();
   date.setDate(date.getDate() - 1);
@@ -31,12 +39,7 @@ async function get_data(start_time, end_time) {
   const end_time = new Date().toISOString();
 
   const data = await get_data(start_time, end_time);
-  data.forEach((v) => {
-    L.marker([v.latitude, v.longitude])
-      .addTo(markersGroup)
-      .bindPopup(v.place)
-      .openPopup();
-  });
+  update_ui(data);
 })();
 function clear_markers() {
   markersGroup.clearLayers();
