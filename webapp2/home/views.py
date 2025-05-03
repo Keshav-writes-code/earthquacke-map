@@ -14,7 +14,6 @@ cursor.execute("use earthquake")
 
 
 def get_data(request):
-    print("Requestr Recevied")
     if request.method == "GET":
         start_time = request.GET.get("start_time")
         end_time = request.GET.get("end_time")
